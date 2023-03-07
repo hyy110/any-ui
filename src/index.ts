@@ -17,4 +17,5 @@ export {
   Table,
   Pagination,
   Calendar,
+  Upload2,
 } from "../components/index";
