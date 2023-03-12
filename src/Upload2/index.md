@@ -18,11 +18,17 @@ export default () => (
   <>
     <Upload2
       action="https://my-json-server.typicode.com/typicode/demo/posts"
-      onSuccess={() => {
-        console.log("success");
+      onProgress={(percentage, file) => {
+        console.log("progress", percentage);
       }}
-      onError={() => {
-        console.log("error");
+      onSuccess={(data, file) => {
+        console.log("success", data);
+      }}
+      onError={(err, file) => {
+        console.log("error", err);
+      }}
+      onChange={() => {
+        console.log("change");
       }}
     ></Upload2>
   </>
