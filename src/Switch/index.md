@@ -82,7 +82,7 @@ export default () => (
 |      参数      |       说明       |              类型               | 默认值 |
 | :------------: | :--------------: | :-----------------------------: | :----: |
 |   ischecked    | 指定当前是否选中 |            `boolean`            | false  |
-|   className    |  Switch容器类名   |            `string`             |   --   |
+|   className    | Switch 容器类名  |            `string`             |   --   |
 | defaultChecked |   初始是否选中   |            `boolean`            |  true  |
 |    disabled    |     是否禁用     |            `boolean`            | false  |
 |     width      |     开关大小     |            `string`             |  40px  |
