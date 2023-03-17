@@ -25,5 +25,5 @@
     "stripInternal": true
   },
   "exclude": ["node_modules", "lib", "es"],
-  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
+  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*", "./typings/images.d.ts"]
 }

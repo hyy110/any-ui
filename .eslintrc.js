@@ -48,5 +48,7 @@ module.exports = {
     "@typescript-eslint/no-non-null-assertion": 0,
     "react/button-has-type": 0,
     "@typescript-eslint/ban-ts-comment": 0,
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": "warn",
   },
 };

@@ -7,9 +7,9 @@ group:
   title: 数据录入：
 ---
 
-# Upload2 上传
+# Progress 进度
 
-文件选择上传控件。
+进度控件。
 
 ```jsx
 import { Upload2 } from "@any_ui/core";

@@ -1,0 +1,42 @@
+@import "./basic.scss";
+@import "./mixin.scss";
+
+.ai-upload-list {
+  margin: 0;
+  padding: 0;
+  border-block-end-style: none;
+  &-item {
+    position: relative;
+    width: 200px;
+    margin-top: 5px;
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .file-name {
+      &-uploading {
+        color: blue;
+      }
+      &-success {
+        color: green;
+      }
+      &-error {
+        color: red;
+      }
+      .image {
+        width: 20px;
+        vertical-align: middle;
+        margin-left: 0px;
+      }
+    }
+    .image-s {
+      margin-left: 10px;
+      width: 20px;
+      vertical-align: middle;
+    }
+  }
+  &-item:hover {
+    cursor: pointer;
+    background-color: lightgray;
+  }
+}
