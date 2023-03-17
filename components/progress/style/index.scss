@@ -1,0 +1,28 @@
+.ai-progress-bar {
+  width: 100%;
+  box-sizing: border-box;
+  &-outer {
+    border-radius: 999999px;
+    background-color: lightgray;
+    overflow: hidden;
+    position: relative;
+  }
+  &-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    border-radius: 999999px;
+    line-height: 1;
+    transition: all 0.33s;
+    background-color: rgb(22, 119, 255);
+    .inner-Text {
+      color: #fff;
+      font-size: 10px;
+      margin: 0 5px;
+    }
+  }
+}
