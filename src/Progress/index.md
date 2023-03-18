@@ -4,40 +4,23 @@
 nav:
   title: 组件
 group:
-  title: 数据录入：
+  title: 数据展示：
 ---
 
 # Progress 进度
 
-进度控件。
+通用进度组件
+
+## 示例
+
+### 基础使用
 
 ```jsx
-import { Upload2 } from "@any_ui/core";
-const defaultFileList: UploadFile[] = [
-  { uid: "12", size: 1234, name: "ux.txt", status: "success", percentage: 30 },
-  { uid: "123", size: 1234, name: "ux.txt", status: "error", percentage: 30 },
-];
+import { Progress } from "@any_ui/core";
+
 export default () => (
   <>
-    <Upload2
-      action="https://my-json-server.typicode.com/typicode/demo/posts"
-      defaultFileList={defaultFileList}
-      onRemove={() => {
-        console.log("delete");
-      }}
-      // onProgress={(percentage, file) => {
-      //   console.log("progress", percentage);
-      // }}
-      // onSuccess={(data, file) => {
-      //   console.log("success", data);
-      // }}
-      // onError={(err, file) => {
-      //   console.log("error", err);
-      // }}
-      // onChange={() => {
-      //   console.log("change");
-      // }}
-    ></Upload2>
+    <Progress percent={30}></Progress>
   </>
 );
 ```

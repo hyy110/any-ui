@@ -18,3 +18,4 @@ export { default as Modal } from "./modal/modal";
 export { default as Drawer } from "./drawer/drawer";
 export { default as Pagination } from "./pagination";
 export { default as Table } from "./table";
+export { default as Progress } from "./progress";

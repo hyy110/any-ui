@@ -18,4 +18,5 @@ export {
   Pagination,
   Calendar,
   Upload2,
+  Progress,
 } from "../components/index";
