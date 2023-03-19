@@ -5,6 +5,7 @@ import axios from "axios";
 import Button from "./../button/index";
 import { ChangeEvent } from "react";
 import UploadList2 from "./uploadList2";
+import { v4 as uuidv4 } from "uuid";
 
 export type UploadFileStatus = "ready" | "uploading" | "success" | "error";
 
@@ -28,6 +29,12 @@ export interface UploadProps {
   onError?: (err: any, file: File) => void;
   onChange?: (file: File) => void;
   onRemove?: (file: UploadFile) => void;
+  headers?: { [key: string]: any };
+  name?: string;
+  data?: { [key: string]: any };
+  withCredentials: boolean;
+  accept?: string;
+  multiple?: boolean;
 }
 
 const Upload2: FC<UploadProps> = (props) => {
@@ -40,6 +47,12 @@ const Upload2: FC<UploadProps> = (props) => {
     onError,
     onChange,
     onRemove,
+    name,
+    headers,
+    data,
+    withCredentials,
+    accept,
+    multiple,
   } = props;
   const fileInput = useRef<HTMLInputElement>(null);
   const [fileList, setFileList] = useState<UploadFile[]>(defaultFileList || []);
@@ -91,21 +104,30 @@ const Upload2: FC<UploadProps> = (props) => {
 
   const post = (file: File) => {
     let _file: UploadFile = {
-      uid: Date.now() + "upload-file",
+      uid: uuidv4() + "upload-file",
       status: "ready",
       name: file.name,
       size: file.size,
       percent: 0,
       raw: file,
     };
-    setFileList([_file, ...fileList]);
+    setFileList((prevList) => {
+      return [_file, ...prevList];
+    });
     const formData = new FormData();
-    formData.append(file.name, file);
+    formData.append(name || "file", file);
+    if (data) {
+      Object.keys(data).forEach((key) => {
+        formData.append(key, data[key]);
+      });
+    }
     axios
       .post(action, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          ...headers,
         },
+        withCredentials,
         onUploadProgress: (e: any) => {
           let percentage = Math.round((e.loaded * 100) / e.total) || 0;
           if (percentage < 100) {
@@ -145,7 +167,7 @@ const Upload2: FC<UploadProps> = (props) => {
       onRemove();
     }
   };
-  console.log(fileList);
+
   return (
     <div className="ai-upload-component">
       <Button type="primary" onClick={handleClick}>
@@ -157,10 +179,16 @@ const Upload2: FC<UploadProps> = (props) => {
         style={{ display: "none" }}
         ref={fileInput}
         onChange={handleFileChange}
+        accept={accept}
+        multiple={multiple}
       />
       <UploadList2 fileList={fileList} onRemove={handleRemove} />
     </div>
   );
+};
+
+Upload2.defaultProps = {
+  name: "file",
 };
 
 export default memo(Upload2);

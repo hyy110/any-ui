@@ -13,18 +13,20 @@ group:
 
 ```jsx
 import { Upload2 } from "@any_ui/core";
-const defaultFileList: UploadFile[] = [
-  { uid: "12", size: 1234, name: "ux.txt", status: "success", percentage: 30 },
-  { uid: "123", size: 1234, name: "ux.txt", status: "error", percentage: 30 },
-];
+const defaultFileList = [];
 export default () => (
   <>
     <Upload2
       action="https://my-json-server.typicode.com/typicode/demo/posts"
       defaultFileList={defaultFileList}
-      onRemove={() => {
-        console.log("delete");
-      }}
+      name="filename"
+      data={{ key: "value" }}
+      headers={{ "X-Powered-By": "ai" }}
+      // accept=".jpg"
+      multiple
+      // onRemove={() => {
+      //   console.log("delete");
+      // }}
       // onProgress={(percentage, file) => {
       //   console.log("progress", percentage);
       // }}
