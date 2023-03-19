@@ -6,6 +6,7 @@ import Button from "./../button/index";
 import { ChangeEvent } from "react";
 import UploadList2 from "./uploadList2";
 import { v4 as uuidv4 } from "uuid";
+import Dragger from "./dragger";
 
 export type UploadFileStatus = "ready" | "uploading" | "success" | "error";
 
@@ -35,10 +36,13 @@ export interface UploadProps {
   withCredentials: boolean;
   accept?: string;
   multiple?: boolean;
+  drag?: boolean;
+  children?: ReactNode;
 }
 
 const Upload2: FC<UploadProps> = (props) => {
   const {
+    children,
     action,
     defaultFileList,
     beforeUpload,
@@ -53,6 +57,7 @@ const Upload2: FC<UploadProps> = (props) => {
     withCredentials,
     accept,
     multiple,
+    drag,
   } = props;
   const fileInput = useRef<HTMLInputElement>(null);
   const [fileList, setFileList] = useState<UploadFile[]>(defaultFileList || []);
@@ -170,9 +175,17 @@ const Upload2: FC<UploadProps> = (props) => {
 
   return (
     <div className="ai-upload-component">
-      <Button type="primary" onClick={handleClick}>
-        upload2
-      </Button>
+      {drag ? (
+        <Dragger
+          onFile={(files) => {
+            uploadFiles(files);
+          }}
+        ></Dragger>
+      ) : (
+        <Button type="primary" onClick={handleClick}>
+          {children}
+        </Button>
+      )}
       <input
         type="file"
         className="ai-file-input"
@@ -189,6 +202,7 @@ const Upload2: FC<UploadProps> = (props) => {
 
 Upload2.defaultProps = {
   name: "file",
+  children: "Upload",
 };
 
 export default memo(Upload2);

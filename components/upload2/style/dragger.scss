@@ -1,0 +1,15 @@
+.ai-upload-dragger {
+  width: 300px;
+  height: 200px;
+  border: 1px dashed rgb(191, 191, 191);
+  text-align: center;
+  line-height: 200px;
+  border-radius: 10px;
+  color: black;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.isDragover {
+  border: 1px dashed rgb(22, 119, 255);
+  background-color: rgb(191, 191, 191);
+}

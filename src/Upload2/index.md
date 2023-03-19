@@ -39,7 +39,38 @@ export default () => (
       // onChange={() => {
       //   console.log("change");
       // }}
-    ></Upload2>
+    >
+      Upload file
+    </Upload2>
+
+    <h3>可拖拽</h3>
+    <Upload2
+      action="https://my-json-server.typicode.com/typicode/demo/posts"
+      defaultFileList={defaultFileList}
+      name="filename"
+      data={{ key: "value" }}
+      headers={{ "X-Powered-By": "ai" }}
+      // accept=".jpg"
+      multiple
+      drag={true}
+      // onRemove={() => {
+      //   console.log("delete");
+      // }}
+      // onProgress={(percentage, file) => {
+      //   console.log("progress", percentage);
+      // }}
+      // onSuccess={(data, file) => {
+      //   console.log("success", data);
+      // }}
+      // onError={(err, file) => {
+      //   console.log("error", err);
+      // }}
+      // onChange={() => {
+      //   console.log("change");
+      // }}
+    >
+      Upload file
+    </Upload2>
   </>
 );
 ```
