@@ -1,3 +1,5 @@
+const webpackBundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const fs = require("fs-extra");
 const path = require("path");
 const componentsPath = path.join(__dirname, "./components");
@@ -97,6 +99,7 @@ module.exports = async () => {
         },
       ],
     },
+    plugins: [new webpackBundleAnalyzerPlugin()],
   };
 
   return [

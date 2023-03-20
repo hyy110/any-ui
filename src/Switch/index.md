@@ -24,54 +24,15 @@ const onClick = (ischecked: boolean) => {
 
 export default () => (
   <>
+    <h3>基本使用</h3>
     <Switch onClick={onClick}></Switch>
-  </>
-);
-```
-
-### 禁止状态
-
-```jsx
-import { Switch } from "@any_ui/core";
-
-export default () => (
-  <>
+    <h3>禁用状态</h3>
     <Switch disabled={true}></Switch>
-  </>
-);
-```
-
-### 更换颜色
-
-```jsx
-import { Switch } from "@any_ui/core";
-
-export default () => (
-  <>
+    <h3>设置主题</h3>
     <Switch activeColor={"green"} inactiveColor={"red"}></Switch>
-  </>
-);
-```
-
-### 更换长度
-
-```jsx
-import { Switch } from "@any_ui/core";
-
-export default () => (
-  <>
-    <Switch width={60}></Switch>
-  </>
-);
-```
-
-### 加入文本
-
-```jsx
-import { Switch } from "@any_ui/core";
-
-export default () => (
-  <>
+    <h3>设置宽度</h3>
+    <Switch width={80}></Switch>
+    <h3>加入文本</h3>
     <Switch activeValue={"开启"} inactiveValue={"关闭"}></Switch>
   </>
 );
