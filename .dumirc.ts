@@ -18,7 +18,7 @@ export default defineConfig({
     footer: false,
     prefersColor: { default: "auto" },
     socialLinks: {
-      github: "https://github.com/5unnyWind/any-ui",
+      github: "https://github.com/hyy110/any-ui",
     },
   },
   locales: [
